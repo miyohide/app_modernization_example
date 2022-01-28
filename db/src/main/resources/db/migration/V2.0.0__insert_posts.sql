@@ -1,0 +1,10 @@
+insert into posts (title, body) values ('title01', 'body01');
+insert into posts (title, body) values ('title02', 'body02');
+insert into posts (title, body) values ('title03', 'body03');
+insert into posts (title, body) values ('title04', 'body04');
+insert into posts (title, body) values ('title05', 'body05');
+insert into posts (title, body) values ('title06', 'body06');
+insert into posts (title, body) values ('title07', 'body07');
+insert into posts (title, body) values ('title08', 'body08');
+insert into posts (title, body) values ('title09', 'body09');
+insert into posts (title, body) values ('title10', 'body10');
