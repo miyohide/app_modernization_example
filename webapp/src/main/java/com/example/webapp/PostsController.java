@@ -3,6 +3,7 @@ package com.example.webapp;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,5 +20,12 @@ public class PostsController {
         List<Post> posts = postService.allPosts();
         model.addAttribute("posts", posts);
         return "posts/index";
+    }
+
+    @GetMapping("/posts/{id}")
+    public String posts_show(@PathVariable("id") Long id, Model model) {
+        Post post = postService.postById(id);
+        model.addAttribute("post", post);
+        return "posts/show";
     }
 }

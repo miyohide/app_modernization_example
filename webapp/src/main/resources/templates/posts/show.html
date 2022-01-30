@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post 詳細</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<h1>Post 詳細</h1>
+<table class="table">
+    <tr>
+      <th>ID</th>
+      <td th:text="${post.id}">id</td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td th:text="${post.title}">title</td>
+    </tr>
+    <tr>
+      <th>Body</th>
+      <td th:text="${post.body}">body</td>
+    </tr>
+</table>
+<a href="/" class="btn btn-primary">トップページ</a>
+<a href="/posts/" class="btn btn-primary">Posts一覧</a>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

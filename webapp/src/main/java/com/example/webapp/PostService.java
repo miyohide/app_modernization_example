@@ -21,4 +21,12 @@ public class PostService {
         List<Post> postList = jdbcTemplate.query(sql, rowMapper);
         return postList;
     }
+
+    public Post postById(Long id) {
+        String sql = "SELECT id, title, body FROM posts WHERE id = ?";
+        RowMapper<Post> rowMapper = new BeanPropertyRowMapper<>(Post.class);
+        Post p = jdbcTemplate.queryForObject(sql, rowMapper, id);
+
+        return p;
+    }
 }
