@@ -29,4 +29,9 @@ public class PostService {
 
         return p;
     }
+
+    public int insertPost(Post post) {
+        String sql = "INSERT INTO posts (title, body) VALUES (?, ?)";
+        return jdbcTemplate.update(sql, post.getTitle(), post.getBody());
+    }
 }
