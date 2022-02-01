@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+  <form th:action="@{/login}" class="form-signin" method="post">
+    <div class="alert alert-danger" th:if="${showErrorMsg}" role="alert" th:text="${errorMsg}">
+      エラーメッセージ
+    </div>
+    <div class="alert alert-success" th:if="${showLogoutedMsg}" role="alert">
+      ログアウトしました
+    </div>
+    <p>
+      <input type="text" id="username" name="username" class="form-control" placeholder="ユーザID" required autofocus>
+    </p>
+    <p>
+      <input type="password" class="form-control" id="password" name="password" placeholder="パスワード" required>
+    </p>
+    <button class="btn btn-primary" type="submit">ログイン</button>
+  </form>
+</div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
