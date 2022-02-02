@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeaf.org">
+<html xmlns:th="http://www.thymeaf.org"
+      xmlns:sec="http://www.thymeaf.org/extras/spring-security"
+>
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
@@ -20,7 +22,12 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="navbar-item">
-                        <a href="/login" class="nav-link">ログイン</a>
+                        <div sec:authorize="isAuthenticated()">
+                            Logged user: <span sec:authentication="name">名前</span>
+                        </div>
+                        <div sec:authorize="isAnonymous()">
+                            <a href="/login" class="nav-link">ログイン</a>
+                        </div>
                     </li>
                 </ul>
             </div>
