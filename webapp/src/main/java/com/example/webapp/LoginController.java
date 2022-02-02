@@ -1,6 +1,5 @@
 package com.example.webapp;
 
-import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.security.authentication.BadCredentialsException;
