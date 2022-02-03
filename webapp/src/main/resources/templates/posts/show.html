@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeaf.org">
+<html xmlns:th="http://www.thymeaf.org"
+      th:replace="~{layout/template::layout(~{::title},~{::body/content()})}"
+>
 <head>
-    <meta charset="UTF-8">
     <title>Post 詳細</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
 <h1>Post 詳細</h1>
@@ -23,6 +23,5 @@
 </table>
 <a href="/" class="btn btn-primary">トップページ</a>
 <a href="/posts/" class="btn btn-primary">Posts一覧</a>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
