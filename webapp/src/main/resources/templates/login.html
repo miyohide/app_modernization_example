@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeaf.org">
+<html xmlns:th="http://www.thymeaf.org"
+      th:replace="~{layout/template::layout(~{::title},~{::body/content()})}"
+>
 <head>
-    <meta charset="UTF-8">
-    <title>ログイン</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <title>Sample Web App ログインページ</title>
 </head>
 <body>
 <div class="container">
@@ -23,6 +23,5 @@
     <button class="btn btn-primary" type="submit">ログイン</button>
   </form>
 </div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
