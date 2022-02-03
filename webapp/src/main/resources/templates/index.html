@@ -1,39 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeaf.org"
       xmlns:sec="http://www.thymeaf.org/extras/spring-security"
+      th:replace="~{layout/template::layout(~{::title},~{::body/content()})}"
 >
 <head>
-    <meta charset="UTF-8">
-    <title>Hello</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>Sample Web App Top page</title>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:brown">
-        <div class="container-fluid">
-            <a href="/" class="navbar-brand">WebApp</a>
-            <div id="navbarNav" class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="navbar-item">
-                        <a href="#" class="nav-link">
-                            左端メニュー
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="navbar-item">
-                        <div sec:authorize="isAuthenticated()">
-                            Logged user: <span sec:authentication="name">名前</span>
-                        </div>
-                        <div sec:authorize="isAnonymous()">
-                            <a href="/login" class="nav-link">ログイン</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
 <h1>Sample Web App</h1>
 <ul>
     <li><a href="posts/">Post一覧</a></li>
