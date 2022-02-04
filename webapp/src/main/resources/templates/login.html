@@ -8,10 +8,14 @@
 <body>
 <div class="container">
   <form th:action="@{/login}" class="form-signin" method="post">
-    <div class="alert alert-danger" th:if="${showErrorMsg}" role="alert" th:text="${errorMsg}">
-      エラーメッセージ
+    <h2>ログイン</h2>
+    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+        ログインに失敗しました
+        <div th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
+            <span th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"></span>
+        </div>
     </div>
-    <div class="alert alert-success" th:if="${showLogoutedMsg}" role="alert">
+    <div th:if="${param.logout}" class="alert alert-success" role="alert">
       ログアウトしました
     </div>
     <p>
