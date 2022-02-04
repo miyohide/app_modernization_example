@@ -15,10 +15,21 @@
             <ul class="navbar-nav">
               <li class="navbar-item">
                 <div sec:authorize="isAuthenticated()">
-                  Logged user: <span sec:authentication="name">名前</span>
+                  <div class="navbar-text">
+                    Logged user: <span sec:authentication="name">名前</span>
+                  </div>
                 </div>
-                <div sec:authorize="isAnonymous()">
-                  <a href="/login" class="nav-link">ログイン</a>
+              </li>
+              <li class="navbar-item">
+                <div sec:authorize="isAuthenticated()">
+                  <div class="navbar-text">
+                    <form th:action="@{/logout}" method="post">
+                      <input type="submit" value="ログアウト" class="btn btn-outline-primary">
+                    </form>
+                  </div>
+                </div>
+                <div sec:authorize="!isAuthenticated()">
+                  <a href="/login" class="btn btn-outline-primary">ログイン</a>
                 </div>
               </li>
             </ul>
