@@ -26,6 +26,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: create Docker Image
         run: |
+          cd webapp
           IMAGE_TAG=$(echo ${{ github.ref }} | sed -e 's/refs\/tags\///')
           ./gradlew jibDockerBuild --image=${{ secrets.REGISTRY_SERVER }}/mywebapp:$IMAGE_TAG
           docker push ${{ secrets.REGISTRY_SERVER }}/mywebapp:$IMAGE_TAG
