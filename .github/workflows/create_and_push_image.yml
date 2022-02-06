@@ -18,7 +18,9 @@ jobs:
           distribution: 'zulu'
           cache: gradle
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: |
+          cd webapp
+          chmod +x gradlew
       - uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.REGISTRY_SERVER }}
