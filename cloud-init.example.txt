@@ -1,0 +1,12 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - openjdk-11-jdk
+  - postgresql
+  - postgresql-contrib
+write_files:
+  - owner: azureuser:azureuser
+    path: /home/azureuser/myapp/cloud-init
+runcmd:
+  - cd "/home/azureuser/myapp"
+  - git clone "https://github.com/miyohide/app_modernization_example.git"
