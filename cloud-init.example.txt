@@ -2,5 +2,6 @@
 package_upgrade: true
 packages:
   - openjdk-11-jdk
+  - tomcat9
   - postgresql
   - postgresql-contrib
