@@ -26,11 +26,13 @@ public class Main {
         this.appConfig = new HashMap<>();
     }
 
-    public Map<String, String> getConfig() {
+    public void loadConfig() {
         this.appConfig.put("url", this.config.getString("datasource.url"));
         this.appConfig.put("user", this.config.getString("datasource.user"));
         this.appConfig.put("password", this.config.getString("datasource.password"));
+    }
 
-        return this.appConfig;
-    }    
+    public Map<String, String> getAppConfig() {
+        return appConfig;
+    }
 }

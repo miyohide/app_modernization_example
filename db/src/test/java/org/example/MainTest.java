@@ -10,7 +10,8 @@ public class MainTest {
   @Test
   void noEnvironmentVariable() {
     Main m = new Main();
-    Map<String, String> appConfig = m.getConfig();
+    m.loadConfig();
+    Map<String, String> appConfig = m.getAppConfig();
     assertEquals(appConfig.get("url"), "jdbc:postgresql://localhost:5432/azureuser");
     assertEquals(appConfig.get("user"), "azureuser");
     assertEquals(appConfig.get("password"), "superverystrongpassword");
