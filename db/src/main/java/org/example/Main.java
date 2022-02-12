@@ -12,13 +12,9 @@ public class Main {
     private Map<String, String> appConfig;
 
     public static void main(String[] args) {
-        Config config = ConfigFactory.load();
-        String url = config.getString("datasource.url");
-        String user = config.getString("datasource.user");
-        String password = config.getString("datasource.password");
-        Flyway flyway = Flyway.configure()
-                        .dataSource(url, user, password).load();
-        flyway.migrate();
+        Main m = new Main();
+        m.loadConfig();
+        m.runDBMigrate();
     }
 
     public Main() {
@@ -34,5 +30,13 @@ public class Main {
 
     public Map<String, String> getAppConfig() {
         return appConfig;
+    }
+
+    public void runDBMigrate() {
+        Flyway flyway = Flyway.configure()
+                        .dataSource(this.appConfig.get("url"),
+                        this.appConfig.get("user"),
+                        this.appConfig.get("password")).load();
+        flyway.migrate();
     }
 }
