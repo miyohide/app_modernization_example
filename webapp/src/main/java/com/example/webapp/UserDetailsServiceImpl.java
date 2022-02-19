@@ -28,8 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
       Collection<GrantedAuthority> authorities = new ArrayList<>();
       String get_authority_sql = "SELECT authority FROM authorities WHERE user_id = ?";
       List<Map<String, Object>> authorities_result = jdbcTemplate.queryForList(get_authority_sql, (Long)find_user_result.get("id"));
-      for (Map<String,Object> map2 : authorities_result) {
-        authorities.add(new SimpleGrantedAuthority((String)map2.get("authority")));
+      for (Map<String,Object> authority_result : authorities_result) {
+        authorities.add(new SimpleGrantedAuthority((String)authority_result.get("authority")));
       }
       return new UserDetailsImpl(username, password, authorities);
     } catch (Exception e) {
