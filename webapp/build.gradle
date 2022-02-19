@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'com.google.cloud.tools.jib' version '3.1.4'
+    id 'com.diffplug.spotless' version '6.3.0'
 }
 
 group = 'com.example'
@@ -31,3 +32,9 @@ tasks.named('test') {
 }
 
 jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
+}
