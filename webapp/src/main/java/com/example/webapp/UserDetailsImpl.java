@@ -1,7 +1,6 @@
 package com.example.webapp;
 
 import java.util.Collection;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,7 +10,8 @@ public class UserDetailsImpl implements UserDetails {
   private String password;
   private Collection<GrantedAuthority> authorities;
 
-  public UserDetailsImpl(String username, String password, Collection<GrantedAuthority> authorities) {
+  public UserDetailsImpl(
+      String username, String password, Collection<GrantedAuthority> authorities) {
     this.username = username;
     this.password = password;
     this.authorities = authorities;
@@ -51,5 +51,4 @@ public class UserDetailsImpl implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
-  
 }
