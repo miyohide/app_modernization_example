@@ -23,11 +23,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     try {
       String find_user_sql = "SELECT id, password FROM users WHERE name = ?";
-      Map<String, Object> map = jdbcTemplate.queryForMap(find_user_sql, username);
-      String password = (String)map.get("password");
+      Map<String, Object> find_user_result = jdbcTemplate.queryForMap(find_user_sql, username);
+      String password = (String)find_user_result.get("password");
       Collection<GrantedAuthority> authorities = new ArrayList<>();
       String authority_sql = "SELECT authority FROM authorities WHERE user_id = ?";
-      List<Map<String, Object>> authorities_result = jdbcTemplate.queryForList(authority_sql, (Long)map.get("id"));
+      List<Map<String, Object>> authorities_result = jdbcTemplate.queryForList(authority_sql, (Long)find_user_result.get("id"));
       for (Map<String,Object> map2 : authorities_result) {
         authorities.add(new SimpleGrantedAuthority((String)map2.get("authority")));
       }
