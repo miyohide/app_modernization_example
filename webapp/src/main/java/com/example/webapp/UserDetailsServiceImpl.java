@@ -26,8 +26,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
       Map<String, Object> find_user_result = jdbcTemplate.queryForMap(find_user_sql, username);
       String password = (String)find_user_result.get("password");
       Collection<GrantedAuthority> authorities = new ArrayList<>();
-      String authority_sql = "SELECT authority FROM authorities WHERE user_id = ?";
-      List<Map<String, Object>> authorities_result = jdbcTemplate.queryForList(authority_sql, (Long)find_user_result.get("id"));
+      String get_authority_sql = "SELECT authority FROM authorities WHERE user_id = ?";
+      List<Map<String, Object>> authorities_result = jdbcTemplate.queryForList(get_authority_sql, (Long)find_user_result.get("id"));
       for (Map<String,Object> map2 : authorities_result) {
         authorities.add(new SimpleGrantedAuthority((String)map2.get("authority")));
       }
