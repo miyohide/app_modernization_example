@@ -22,8 +22,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     try {
-      String sql = "SELECT id, password FROM users WHERE name = ?";
-      Map<String, Object> map = jdbcTemplate.queryForMap(sql, username);
+      String find_user_sql = "SELECT id, password FROM users WHERE name = ?";
+      Map<String, Object> map = jdbcTemplate.queryForMap(find_user_sql, username);
       String password = (String)map.get("password");
       Collection<GrantedAuthority> authorities = new ArrayList<>();
       String authority_sql = "SELECT authority FROM authorities WHERE user_id = ?";
